@@ -187,6 +187,15 @@ La interfaz de administracion solo es accesible por HTTPS en un puerto no estand
 | Syslog-ng | Recoleccion y reenvio avanzado de logs                   |
 | Shellcmd  | Comandos de shell personalizados al inicio de pfSense    |
 
+Usé Syslog-ng para enviar los logs a Wazuh y ademas debí implementar un template customizado para que los logs pudieran ser normalizados por los decoders de Wazuh ya que si uso el syslogd, el servicio por defecto de pfSense, los logs no llegan en un formato compatible.
+
+el contenido de c_log es: `log {source {system(); internal(); }; destination {network("10.0.0.50" port(5140) transport("udp") template("$DATE $HOST $PROGRAM: $MSG\n")); file("/var/log/pfsense.secure.gateway.log"); };};`
+
+Lo que hace c_log es indicar que debe tomar los logs del sistema en /var/log/, ademas de los internos de syslog-ng y enviarlos al endpoint 10.0.0.50 que es el server en DMZ a travez del puerto 5140 usando el protocolo UDP formateado tal como "Date HOST PROGRAM: MSG" porque es el formato de los decoders de Wazuh y ademas los guarda en el archivo /var/log/pfsense.secure.gateway.log para tener un respaldo de los logs en el propio pfSense.
+
+
+<img width="729" height="485" alt="image" src="syslog-ng-log-object.png" />
+
 ---
 
 ## Consideraciones de hardening

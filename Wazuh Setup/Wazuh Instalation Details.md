@@ -129,21 +129,10 @@ Se cambio la clade de la API.
 
 - **8443/TCP** — **Wazuh dashboard (HTTPS)**
 
-### Configuracion de pfsense
+### Recepción de logs desde pfsense
 
-Para que pfsende envie los logs hay que ir a **Status -> System Logs -> Settings** bajar hasta la seccion **Remote Logging Options** y modificar lo siguiente:
-- Send log messages to remote syslog server: ok
-- Source Addres: DMZ
-- IP Protocol IPv4
-- Remote log services: 10.0.0.50:514
-- Remote Syslog Contents: System Events, Firewall Events, y DNS Events.
 
-Es necesario por ahora dejar que los envie en formato "BSD (RFC 3164, default)" porque el wazuh puede no poder parsear el otro formato mas moderno.
 
-**Compretar**
-- Explicar como agregar archoves al dashboard
-- agregar el decoder tanto en la carpeta como en el docker compose 
-- 
 
 ---
 ## Sources:
@@ -151,4 +140,3 @@ Es necesario por ahora dejar que los envie en formato "BSD (RFC 3164, default)" 
 - [Deployment on Docker - Installation alternatives · Wazuh documentation](https://documentation.wazuh.com/current/deployment-options/docker/index.html)
 - [CLOCKWORK COMPUTER - WAZUH - pfSense](https://clockworkcomputerip.blogspot.com/2025/11/wazuh-pfsense.html)
 - [Clockwork Computer Notes](https://drive.google.com/file/d/1i-bb766uI6W9goYvDlxvmBGnRlKk1Qp8/view)
-- 
