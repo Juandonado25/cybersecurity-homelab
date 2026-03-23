@@ -131,8 +131,7 @@ Se cambio la clade de la API.
 
 ### Recepción de logs desde pfsense
 
-
-
+<img width="729" height="485" alt="image" src="../images/wazuh-pfsense-logs.png" />
 
 ---
 ## Sources:
