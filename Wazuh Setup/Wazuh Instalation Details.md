@@ -23,7 +23,7 @@ Cambie el puerto de 443 a 8443 para que evitar problemas con el uso de otros ser
 `services:`
   `wazuh.manager:`
     `ports:`
-      `-  "514:514/udp"`
+      `-  "5140:514/udp"`
     `environment:`
       `- API_PASSWORD=Wazuh-Secret-2026!`
     `volumes:`
