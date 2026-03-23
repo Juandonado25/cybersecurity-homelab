@@ -194,7 +194,7 @@ el contenido de c_log es: `log {source {system(); internal(); }; destination {ne
 Lo que hace c_log es indicar que debe tomar los logs del sistema en /var/log/, ademas de los internos de syslog-ng y enviarlos al endpoint 10.0.0.50 que es el server en DMZ a travez del puerto 5140 usando el protocolo UDP formateado tal como "Date HOST PROGRAM: MSG" porque es el formato de los decoders de Wazuh y ademas los guarda en el archivo /var/log/pfsense.secure.gateway.log para tener un respaldo de los logs en el propio pfSense.
 
 
-<img width="729" height="485" alt="image" src="syslog-ng-log-object.png" />
+<img width="729" height="485" alt="image" src="../images/syslog-ng-log-object.png" />
 
 ---
 

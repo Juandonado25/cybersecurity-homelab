@@ -7,7 +7,7 @@
 
 ## Arquitectura de Red
 La red se divide en tres segmentos principales administrados por un firewall **pfSense 24.0**:
-<img width="729" height="485" alt="image" src="Infraestructura.png" />
+<img width="729" height="485" alt="image" src="/images/Infraestructura.png" />
 ### 1. WAN (Interfaz Externa)
 * **Interfaz:** `em0`.
 * **Configuración:** IP dinámica vía DHCP.
