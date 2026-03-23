@@ -1,7 +1,7 @@
 # Secure Gate - Infraestructura de Red y Seguridad
 
 ## Descripción del Proyecto
-**Secure Gate** es un laboratorio de ciberseguridad diseñado bajo una arquitectura segmentada para maximizar el control del tráfico y la seguridad de los activos. El entorno está desplegado de forma virtual utilizando VirtualBox. El objetivo central es simular un SOC protegido por un firewall perimetral y monitoreado por un SIEM.
+**Secure Gate** es un laboratorio de ciberseguridad diseñado bajo una arquitectura segmentada para maximizar el control del tráfico y la seguridad de los activos. El entorno está desplegado de forma virtual utilizando VirtualBox. El objetivo central es simular un SOC protegido por un firewall perimetral y monitorizado por un IDS Suricata en el firewall y un Wazuh SIEM dockerizado en el server en DMZ.
 
 ---
 
