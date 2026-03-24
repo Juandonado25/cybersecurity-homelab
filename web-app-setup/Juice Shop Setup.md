@@ -2,8 +2,8 @@ OWASP Juice Shop es una aplicación web intencionadamente insegura desarrollada 
 
 Para la instalacion en docker sigo los pasos indicados en la documentacion:
 
-	`docker pull bkimminich/juice-shop`
-	`run --rm -p 3000:3000 bkimminich/juice-shop`
+	docker pull bkimminich/juice-shop
+	run --rm -p 3000:3000 bkimminich/juice-shop
 
 Y luego en el navegador, simulando acceso desde una red WAN osea desde fuera de la red de Virtualbox accedo a la ip de la VM de pfsense que esta puenteada. En mi caso no tuve que especificar el puerto porque hago port forwarding de los puertos 80 y 443 al puerto 3000 que es donde esta la aplicación web.
 
