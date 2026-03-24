@@ -22,6 +22,7 @@ Laboratorio de infraestructura SOC virtualizado orientado a la practica de segme
 La infraestructura se divide en tres segmentos de red aislados administrados por pfSense:
 
 <img width="729" height="485" alt="image" src="/images/Infraestructura.png" />
+
 ### WAN — Interfaz externa
 
 - **Interfaz:** `em0`
