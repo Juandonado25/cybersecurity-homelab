@@ -16,7 +16,7 @@ La red se divide en tres segmentos principales administrados por un firewall **p
 * **Interfaz:** `em1`.
 * **Servidor Principal:** `Webserver-Debian` (IP estática: `10.0.0.50`).
 * **Sistema Operativo:** Debian 13 (Trixie).
-* **Rol:** Aloja el motor Docker donde se despliega la API y el stack de Wazuh.
+* **Rol:** Aloja el motor Docker donde se despliega la aplicacion web vulnerable y el stack de Wazuh.
 * **Seguridad:** Aislamiento estricto; el tráfico desde la DMZ hacia la LAN está bloqueado.
 
 ### 3. LAN - Red Interna (172.16.0.0/24)
