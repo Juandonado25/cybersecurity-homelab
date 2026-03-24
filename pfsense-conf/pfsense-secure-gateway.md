@@ -232,7 +232,7 @@ flowchart TD
   H --> I["Host Admin<br/>172.16.0.10"]
 
   I --> J{"¿Acceso permitido a DMZ?"}
-  J -- "SSH 22 / Wazuh 8443 / HTTP-HTTPS" --> K["Servidor Web / Wazuh<br/>10.0.0.50"]
+  J -- "SSH 22 / Wazuh 8443" --> K["Servidor Web / Wazuh<br/>10.0.0.50"]
   J -- "Otro tráfico" --> L["Bloquear tráfico LAN a DMZ"]
   L --> Z
 
