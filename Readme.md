@@ -32,9 +32,9 @@ La infraestructura se divide en tres segmentos de red aislados administrados por
 ### DMZ — Zona Desmilitarizada (`10.0.0.0/24`)
 
 - **Interfaz:** `em1`
-- **Host:** `Webserver-Debian` — IP estatica `10.0.0.50`
+- **Host:** `Webserver-Debian` — IP estática `10.0.0.50`
 - **SO:** Debian 13 (Trixie)
-- **Rol:** Host Docker que ejecuta el stack SIEM Wazuh y la aplicacion web vulnerable. El trafico desde la DMZ hacia la LAN esta bloqueado explicitamente a nivel de firewall.
+- **Rol:** Host Docker que ejecuta el stack SIEM Wazuh y la aplicación web vulnerable. El trafico desde la DMZ hacia la LAN esta bloqueado explicitamente a nivel de firewall.
 
 ### LAN — Red interna (`172.16.0.0/24`)
 
