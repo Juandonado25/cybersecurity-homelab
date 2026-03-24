@@ -215,30 +215,39 @@ Lo que hace c_log es indicar que debe tomar los logs del sistema en /var/run/log
 
 flowchart TD
 
-```mermaid  
-flowchart TD  
-  
-Internet --> WAN[WAN (em0)\nDHCP]  
-  
-WAN -->|NAT TCP 3000| DMZServer[Servidor DMZ\n10.0.0.50]  
-WAN -->|Bloqueo resto trafico| BlockWAN[Drop]  
-  
-WAN --> pfSense[Firewall pfSense]  
-  
-pfSense --> LAN[LAN (em2)\n172.16.0.1/24]  
-pfSense --> DMZ[DMZ (em1)\n10.0.0.1/24]  
-  
-LAN --> Admin[Host Admin\n172.16.0.10]  
-  
-Admin -->|SSH 22\nWazuh 8443\nHTTP/HTTPS| DMZServer  
-Admin -->|Bloqueado resto| BlockLAN[Drop]  
-  
-DMZ --> DMZServer  
-  
-DMZServer -->|Bloqueado a LAN| BlockDMZLAN[No acceso a LAN]  
-DMZServer -->|Salida permitida| Internet  
-  
-pfSense -->|Syslog UDP 5140| DMZServer  
+```mermaid
+flowchart TD
+  A[Internet] --> B[WAN (em0) DHCP]
+
+  B --> C{¿Puerto permitido?}
+  C -- TCP 3000 --> D[NAT hacia Servidor DMZ 10.0.0.50]
+  C -- Otro tráfico --> E[Bloquear tráfico WAN entrante] --> Z[Fin]
+
+  D --> F[Firewall pfSense]
+
+  F --> G{¿Destino?}
+
+  %% --- LAN ---
+  G -- LAN --> H[Red LAN 172.16.0.0/24]
+  H --> I[Host Admin 172.16.0.10]
+
+  I --> J{¿Acceso permitido a DMZ?}
+  J -- SSH 22 / Wazuh 8443 / HTTP-HTTPS --> K[Servidor DMZ 10.0.0.50]
+  J -- Otro tráfico --> L[Bloquear tráfico LAN → DMZ] --> Z
+
+  %% --- DMZ ---
+  G -- DMZ --> M[Red DMZ 10.0.0.0/24]
+  M --> K
+
+  K --> N{¿Destino del tráfico?}
+  N -- LAN --> O[Bloquear DMZ → LAN (sin movimiento lateral)] --> Z
+  N -- WAN --> P[Permitir salida a Internet]
+
+  %% --- SYSLOG ---
+  F --> Q[Enviar Syslog UDP 5140]
+  Q --> K
+
+  P --> Z[Fin]
 ```
 
 ---
