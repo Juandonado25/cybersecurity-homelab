@@ -8,7 +8,9 @@ Para la instalacion en docker sigo los pasos indicados en la documentacion:
 Luego en el navegador, simulando acceso desde una red WAN desde fuera de la red de Virtualbox, accedo a la IP de la VM de pfsense que esta puenteada. En mi caso no tuve que especificar el puerto porque hago port forwarding de los puertos 80 y 443 al puerto 3000 que es donde esta la aplicación web.
 
 <img width="729" height="485" alt="image" src="/images/juice-shop-front.png" />
+
 ---
+
 ## Sources
 
 - https://owasp.org/www-project-juice-shop/
