@@ -213,27 +213,29 @@ Lo que hace c_log es indicar que debe tomar los logs del sistema en /var/run/log
 
 ## Resumen del flujo de trafico
 
-```
-Internet
-   |
-  WAN (em0) — DHCP
-   |
-   |-- NAT Port Forward (TCP 80,443) --> Servidor DMZ (10.0.0.50)
-   |-- BLOQUEO de todo otro trafico WAN entrante
-   |
-Firewall pfSense
-   |
-   |-- LAN (em2) 172.16.0.1/24
-   |     |-- Host admin: 172.16.0.10 (reserva DHCP estatica)
-   |     |-- Admin accede a DMZ por SSH (22), Wazuh Dashboard (8443), HTTP/HTTPS
-   |     |-- Todo otro trafico LAN a DMZ: BLOQUEADO
-   |
-   |-- DMZ (em1) 10.0.0.1/24
-         |-- Servidor Web / Wazuh: 10.0.0.50 (reserva DHCP estatica)
-         |-- DMZ a LAN: BLOQUEADO (sin movimiento lateral)
-         |-- DMZ a WAN: PERMITIDO (solo saliente)
-         |-- Syslog (UDP 5140) desde pfSense a Wazuh: PERMITIDO
-```
+flowchart TD
+
+    Internet --> WAN[WAN (em0)\nDHCP]
+
+    WAN -->|NAT TCP 3000| DMZServer[Servidor DMZ\n10.0.0.50]
+    WAN -->|Bloqueo resto trafico| BlockWAN[Drop]
+
+    WAN --> pfSense[Firewall pfSense]
+
+    pfSense --> LAN[LAN (em2)\n172.16.0.1/24]
+    pfSense --> DMZ[DMZ (em1)\n10.0.0.1/24]
+
+    LAN --> Admin[Host Admin\n172.16.0.10]
+
+    Admin -->|SSH 22\nWazuh 8443\nHTTP/HTTPS| DMZServer
+    Admin -->|Bloqueado resto| BlockLAN[Drop]
+
+    DMZ --> DMZServer
+
+    DMZServer -->|Bloqueado a LAN| BlockDMZLAN[No acceso a LAN]
+    DMZServer -->|Salida permitida| Internet
+
+    pfSense -->|Syslog UDP 5140| DMZServer
 
 ---
 
