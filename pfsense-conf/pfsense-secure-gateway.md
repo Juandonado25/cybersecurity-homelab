@@ -217,37 +217,36 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  A[Internet] --> B[WAN (em0) DHCP]
+  A["Internet"] --> B["WAN em0<br/>DHCP"]
 
-  B --> C{¿Puerto permitido?}
-  C -- TCP 3000 --> D[NAT hacia Servidor DMZ 10.0.0.50]
-  C -- Otro tráfico --> E[Bloquear tráfico WAN entrante] --> Z[Fin]
+  B --> C{"¿Puerto permitido?"}
+  C -- "TCP 3000" --> D["NAT hacia Servidor DMZ<br/>10.0.0.50"]
+  C -- "Otro tráfico" --> E["Bloquear tráfico WAN entrante"]
+  E --> Z["Fin"]
 
-  D --> F[Firewall pfSense]
+  D --> F["Firewall pfSense"]
 
-  F --> G{¿Destino?}
+  F --> G{"¿Destino?"}
 
-  %% --- LAN ---
-  G -- LAN --> H[Red LAN 172.16.0.0/24]
-  H --> I[Host Admin 172.16.0.10]
+  G -- "LAN" --> H["Red LAN<br/>172.16.0.0/24"]
+  H --> I["Host Admin<br/>172.16.0.10"]
 
-  I --> J{¿Acceso permitido a DMZ?}
-  J -- SSH 22 / Wazuh 8443 / HTTP-HTTPS --> K[Servidor DMZ 10.0.0.50]
-  J -- Otro tráfico --> L[Bloquear tráfico LAN → DMZ] --> Z
+  I --> J{"¿Acceso permitido a DMZ?"}
+  J -- "SSH 22 / Wazuh 8443 / HTTP-HTTPS" --> K["Servidor Web / Wazuh<br/>10.0.0.50"]
+  J -- "Otro tráfico" --> L["Bloquear tráfico LAN a DMZ"]
+  L --> Z
 
-  %% --- DMZ ---
-  G -- DMZ --> M[Red DMZ 10.0.0.0/24]
+  G -- "DMZ" --> M["Red DMZ<br/>10.0.0.0/24"]
   M --> K
 
-  K --> N{¿Destino del tráfico?}
-  N -- LAN --> O[Bloquear DMZ → LAN (sin movimiento lateral)] --> Z
-  N -- WAN --> P[Permitir salida a Internet]
+  K --> N{"¿Destino del tráfico?"}
+  N -- "LAN" --> O["Bloquear DMZ a LAN<br/>sin movimiento lateral"]
+  O --> Z
+  N -- "WAN" --> P["Permitir salida a Internet"]
+  P --> Z
 
-  %% --- SYSLOG ---
-  F --> Q[Enviar Syslog UDP 5140]
+  F --> Q["Enviar Syslog UDP 5140"]
   Q --> K
-
-  P --> Z[Fin]
 ```
 
 ---
