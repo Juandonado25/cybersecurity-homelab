@@ -61,7 +61,7 @@ Ademas para que los logs no fueran un problema para mi almacenamiento use logrot
     endscript
 }
 
-/var/log/suricata-eve-log {
+/var/log/suricata-eve.log {
     size 100M
     rotate 2
     compress
