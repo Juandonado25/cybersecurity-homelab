@@ -1,12 +1,8 @@
 # Telegram Notifications
 
-En una infraestructura de seguridad que esta 24/7 funcionando es necesario implementar un sistema de alerta temprana para tratar de disminuir el MTTR. Para evitar el ruido se limito a solo permitir notificaciones de alertas criticas de nivel 8.
+En infraestructuras de seguridad críticas con disponibilidad 24/7, la implementación de sistemas de alerta temprana es fundamental para optimizar el MTTR (Mean Time To Repair). Para garantizar la relevancia de las notificaciones y reducir el ruido operacional, se filtraron únicamente las alertas de nivel 8 o superior.
 
-Debido a que es un laboratorio de pruebas abordé esta implementación con un enfoque pragmático y decidí usar telegram ya que es simple de implementar y portable, lo cual me permite atender las notificaciones en tiempo real desde mi celular.
-
-Debido a que tengo implementado Wazuh en un docker, esto le agrega una capa de complejidad en la configuración porque tengo que hacer los cambios en el host y mapearlo al directorio interno del contenedor.
-
-Como pre-condición para la implementación de esta funcionalidad hay que tener creado un bot en Telegram usando el @BotFather, hay que guardar el Token y el ID del chat.
+Al tratarse de un entorno de laboratorio, opté por un enfoque pragmático utilizando Telegram como canal de mensajería por su simplicidad y portabilidad, permitiendo el monitoreo en tiempo real desde dispositivos móviles. Dado que la instancia de **Wazuh** se ejecuta en **Docker**, la configuración requirió el mapeo de volúmenes entre el host y el contenedor para asegurar la persistencia de los cambios. Como paso previo, es indispensable la creación de un bot mediante @BotFather y la obtención del API Token y el Chat ID correspondiente.
 
 Como guía use la documentación y el script proporcionados por [Clockwork Computer](https://clockworkcomputerip.blogspot.com/2025/12/wazuh-telegram.html).
 
