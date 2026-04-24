@@ -15,20 +15,20 @@ Como guía use la documentación y el script proporcionados por [Clockwork Compu
 
 Lo primero fue clonar el repositorio de que contiene los scripts en /tmp y pasarlos al directorio donde están guardados los archivos de configuración de Wazuh manager. esto lo hice desde el endpoint Debian pensado para la administración del server. si bien no esta en la imagen es importante darle los permisos necesarios al script para que wazuh lo pueda ejecutar correctamente.
 
-![](images/Wazuh-tg-1.png)
+![](../images/Wazuh-tg-1.png)
 
-![](images/wazuh-tg-2.png)
+![](../images/wazuh-tg-2.png)
 
-![](images/wazuh-tg-3.png)
+![](../images/wazuh-tg-3.png)
 
-![](images/wazuh-tg-4.png)
+![](../images/wazuh-tg-4.png)
 
-![](images/wazuh-tg-5.png)
+![](../images/wazuh-tg-5.png)
 
-![](images/wazuh-tg-6.png)
+![](../images/wazuh-tg-6.png)
 
 Y efectivamente llego el mensaje
-![](images/wazuh-tg-7.png)
+![](../images/wazuh-tg-7.png)
 
 ---
 
@@ -36,16 +36,16 @@ Y efectivamente llego el mensaje
 
 Para esta prueba voy a generar un alerta de nivel 8 creando un usuario nuevo en el server que hace de host para el contenedor de wazuh, el cual tiene un wazuh-agent para monitorearlo.
 
-![](images/wazuh-tg-9.png)
+![](../images/wazuh-tg-9.png)
 
-![](images/wazuh-tg-8.png)
+![](../images/wazuh-tg-8.png)
 
-![](images/wazuh-tg-10.png)
+![](../images/wazuh-tg-10.png)
  
-![](images/wazuh-tg-11.png)
+![](../images/wazuh-tg-11.png)
 
 **Wazuh envió el mensaje a Telegram correctamente**
 
 Como dato adicional se puede ver como Suricata detecto y alerto que se estaba conectando a Telegram lo cual puede ser potencialmente perjudicial, es por eso que decidí por el momento no tomar acción.
 
-![](images/wazuh-tg-12.png)
+![](../images/wazuh-tg-12.png)
