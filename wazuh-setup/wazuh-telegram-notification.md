@@ -28,6 +28,7 @@ Lo primero fue clonar el repositorio de que contiene los scripts en /tmp y pasar
 ![](../images/wazuh-tg-6.png)
 
 Y efectivamente llego el mensaje
+
 ![](../images/wazuh-tg-7.png)
 
 ---
@@ -46,6 +47,6 @@ Para esta prueba voy a generar un alerta de nivel 8 creando un usuario nuevo en 
 
 **Wazuh envió el mensaje a Telegram correctamente**
 
-Como dato adicional se puede ver como Suricata detecto y alerto que se estaba conectando a Telegram lo cual puede ser potencialmente perjudicial, es por eso que decidí por el momento no tomar acción.
+Como dato adicional se puede ver como Suricata detecto y alerto que se estaba conectando a Telegram lo cual puede ser potencialmente perjudicial pero yo se que es trafico legitimo es por eso que decidí por el momento no tomar acción a pesar el ruido que puede generar.
 
 ![](../images/wazuh-tg-12.png)
